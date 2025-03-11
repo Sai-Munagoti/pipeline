@@ -24,24 +24,6 @@ pipeline {
             }
         }
 
-        stage('permission') {
-            steps {
-                dir('/opt/apache-tomcat-9.0.100') {
-                    sh 'sudo chown -R jenkins:jenkins webapps'
-                }
-            }
-        }
-
-        stage('home-permission') {
-            steps {
-                dir('/home/') {
-                    // Ensure that /home/jenkins exists before changing permissions
-                    sh 'sudo mkdir -p /home/jenkins'
-                    sh 'sudo chmod 755 /home/jenkins'
-                }
-            }
-        }
-
         stage('deploy') {
             steps {
                 dir('pipeline/target') {
