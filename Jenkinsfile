@@ -9,7 +9,7 @@ pipeline {
         }
         stage('check') {
             steps {
-                dir ("pipeline") {
+                dir ("taxi-booking") {
                     sh ('ls -l')
                     sh ('mvn package')
                 }
@@ -17,7 +17,7 @@ pipeline {
         }
         stage('copy') {
             steps {
-                dir ("pipeline/target") {
+                dir ("taxi-booking/target") {
                     sh 'mv *.war ${JOB_NAME}-${BUILD_ID}.war'
                     sh 'cp *.war /opt/apache-tomcat-9.0.100/webapps'
                 }
@@ -25,7 +25,7 @@ pipeline {
         }
         stage('backup') {
             steps {
-                dir ("pipeline/target") {
+                dir ("taxi-booking/target") {
                     sh 'cp *.war /home/'
                 }
             }
