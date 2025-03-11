@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('clone') {
             steps {
-                sh 'git clone -b main https://github.com/Sai-Munagoti/pipeline.git'
+                sh 'git clone -b dev https://github.com/BhanuBolligorla/taxi-booking.git'
             }
         }
         stage('check') {
