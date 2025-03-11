@@ -9,7 +9,7 @@ pipeline {
         }
         stage('check') {
             steps {
-                dir ("pipline") {
+                dir ("pipeline") {
                     sh ('ls -l')
                     sh ('mvn package')
                 }
